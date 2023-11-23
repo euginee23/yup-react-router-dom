@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import * as Yup from 'yup';
 import registerValidationSchema from '../utils/registerValidationSchema'; // Update the path
 import './css_modules/register.css';
+import registerUser from './modules/registerUser'
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -41,10 +42,28 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (await validateForm()) {
-      // diri ang logic for registering the user
-      console.log('Form submitted:', formData);
+      try {
+        const registeredUser = await registerUser(formData);
+        console.log('User registered successfully:', registeredUser);
+  
+        window.alert('Registration successful');
+  
+        setFormData({
+          firstName: '',
+          middleName: '',
+          lastName: '',
+          email: '',
+          username: '',
+          password: '',
+          rePassword: '',
+        });
+      } catch (error) {
+        console.error('Error during registration:', error.message);
+  
+        window.alert('Registration failed. Please try again.');
+      }
     } else {
       console.log('Form has validation errors');
     }

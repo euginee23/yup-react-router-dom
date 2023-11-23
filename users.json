@@ -1,0 +1,29 @@
+[
+  {
+    "firstName": "Eugine",
+    "middleName": "S",
+    "lastName": "Cadiz",
+    "email": "eugineimba123@gmail.com",
+    "username": "user1",
+    "password": "pass1",
+    "rePassword": "pass1"
+  },
+  {
+    "firstName": "Honeyleth",
+    "middleName": "A.",
+    "lastName": "Amores",
+    "email": "honey@sosweet",
+    "username": "user2",
+    "password": "pass2",
+    "rePassword": "pass2"
+  },
+  {
+    "firstName": "Tedd Angelo ",
+    "middleName": "Jamorol",
+    "lastName": "Gitalan",
+    "email": "tedd@tedd",
+    "username": "user3",
+    "password": "pass3",
+    "rePassword": "pass3"
+  }
+]

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './css_modules/login.css';
 import loginValidationSchema from '../utils/loginValidationSchema'; 
+import loginUser from './modules/loginUser';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -35,10 +36,21 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (await validateForm()) {
-      // diri ang logic pag login
-      console.log('Form submitted:', formData);
+      try {
+        console.log('Form data submitted:', formData);
+  
+        const loggedInUser = await loginUser(formData);
+        console.log('Login successful:', loggedInUser);
+  
+        window.alert('Login successful');
+  
+      } catch (error) {
+        console.error('Error during login:', error.message);
+  
+        window.alert('Login failed. Please try again.');
+      }
     } else {
       console.log('Form has validation errors');
     }
